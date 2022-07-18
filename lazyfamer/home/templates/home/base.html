@@ -1,4 +1,5 @@
 {% load static %}
+{% load active_link_tags %}
 <!doctype html>
 <html>
     <head>
@@ -24,21 +25,21 @@
             <nav class="container">
                 <div>
                     <a href="{% url 'index' %}">
-                        <img src="{% static 'home/assets/images/logoipsum-logo-33.svg' %}" />
+                        <img src="{% static 'home/assets/images/logo1.svg' %}" />
                     </a>
     
                 </div>
                 <div class="link-div d-none d-lg-block">
                     <ul class="nav_link">
-                        <li class="nav_link_item active">
+                        <li class="nav_link_item  {% active_link 'active' %}" >
                             <a href="{% url 'index' %}" class="">Home</a>
                             <div class="nav-line"></div>
                         </li>
-                        <li class="nav_link_item">
+                        <li class="nav_link_item {% active_link 'about-us' 'active' %}">
                             <a href="{% url 'about-us' %}" class="">About Us</a>
                             <div class="nav-line"></div>
                         </li>
-                        <li class="nav_link_item">
+                        <li class="nav_link_item {% active_link 'services' 'active' %}">
                             <a href="{% url 'services' %}" class="">Services</a>
                             <div class="nav-line"></div>
                         </li>
@@ -50,7 +51,11 @@
                 </div>
                 
                 <div>
-                    <a href="" class="btn-1 d-none d-md-inline d-lg-block">Login / Sign Up</a>
+                    <a href="{% url 'login' %}" class="btn-1 d-none d-md-inline d-lg-block">
+                        Login / Sign Up
+                     <!-- <div class="nav-line"></div> -->
+
+                    </a>
                     <button class="toggle-btn mobile_menu_btn ml-2 bg-transparent border-1 d-inline d-lg-none"><i class="fa fa-bars"></i></button>
                 </div>
             </nav>
@@ -73,7 +78,7 @@
                             <div>
                                 <a href="{% url 'index' %}">
 
-                                    <img src="{% static 'home/assets/images/logoipsum-logo-33.svg' %}" />
+                                    <img src="{% static 'home/assets/images/logo1.svg' %}" />
                                 </a>
                             </div>
                             <div>

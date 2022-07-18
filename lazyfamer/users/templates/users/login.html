@@ -1,0 +1,190 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+
+<!doctype html>
+<html>
+    <head>
+            <title>LazyFamer | Sign In</title>
+
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta name="description" content="">
+            <meta name="robots" content="all,follow">
+            
+    
+            <!-- CSS only -->
+            <link rel="stylesheet" href="{% static 'home/assets/css/fontawesome5/css/all.css' %}" type="text/css">
+            <link rel="stylesheet" href="{% static 'home/assets/css/owl.carousel.css' %}" type="text/css">
+            <link rel="stylesheet" href="{% static 'home/assets/css/bootstrap/css/bootstrap.css' %}" type="text/css">
+            <link rel="stylesheet" href="{% static 'home/assets/css/style.css' %}" type="text/css">
+    
+
+        <style>
+
+              .notification{
+                    position: absolute;
+                    top: 5rem;
+                    right: 1rem;
+                }
+            .page-content {
+                padding: calc(25px + 24px) calc(24px / 2) 70px calc(24px / 2);
+                }
+
+                html{
+                  overflow: hidden;
+                }
+                body{
+                  background: url("{% static 'blog/bg1.jpg' %}");
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                  background-position: center;
+                }
+
+                /* body::before{
+                  content:"";
+                  position: absolute;
+                  height: 100%;
+                  width: 100%;
+                  background: #343a40;
+                  opacity: .8;
+                } */
+
+                
+              .bg-img {
+                background-position: center center;
+                background-size: cover;
+            }
+
+            .bg-overlay {
+                position: relative;
+                z-index: 1;
+            }
+
+            .bg-overlay:after {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                background-color: rgba(4, 8, 29, 0.7);
+                content: '';
+                z-index: -1;
+                top: 0;
+                left: 0;
+            }
+
+                .arrow-link{ 
+                letter-spacing: .1em;
+            }
+  
+            .arrow-link:hover i {
+              left: 10px;
+              }
+            
+            .arrow-link i {
+              -webkit-transition: .3s all ease;
+              -o-transition: .3s all ease;
+              transition: .3s all ease;
+              position: relative;
+              left: 0;
+              font-size: 12px;
+              /* justify-items:; */
+	          }
+
+            .animated-img {
+    -webkit-animation: animated-image 20s ease infinite;
+    animation: animated-image 20s ease infinite;
+}
+
+@-webkit-keyframes animated-image {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 20%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes animated-image {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 20%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+        </style>
+    </head>
+    <body class="animated-img bg-img bg-overlay">
+
+
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex align-items-center min-vh-100">
+                            <div class="w-100 d-block my-5">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8 col-lg-5">
+                                         <div class="card">
+                                            <div class="card-body">
+                                                <div class="text-center mb-2 mt-3">
+                                                    <!-- <a href="{% url 'login' %}"> -->
+                                                        <h2 class="">LOGIN</h2>
+                                                    <!-- </a> -->
+                                                </div>
+
+
+                                                
+
+                                                <form class="box py-4" method="post" >
+                                                    {% csrf_token %}
+                                
+                                                     {% render_field form.username|remove_attr:"autofocus" class="form-control mb-4" autocomplete="off" placeholder="Username"  %}
+                                                     {% render_field form.password class="form-control mb-4" autocomplete="off" placeholder="Password" %}
+                                
+                                                     <!-- {{ form.title|remove_attr:"autofocus" }} -->
+                                                     <button class="btn btn-success btn-block arrow-link" type="submit">LOGIN <i class="fa fa-arrow-right ml-2 mini-icon"></i></button>
+                                
+                                                </form>
+                                                
+
+                                                <div class="d-flex align-items-center justify-content-between border-top pt-3">
+                                                    <div class="">
+                                                      Need an account? <a class="ml-1" href="{% url 'signup' %}">Sign Up</a>
+                                                    </div>
+
+                                                    <div>
+                                                            <a class="ml-2" href="#">Forgot Password?</a>
+                                                    </div>
+                                              </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                
+                            </div>
+                        </div> 
+                    </div> 
+                </div> 
+            </div>
+        </div>
+        
+        
+
+
+            <script src="{% static 'home/assets/js/jquery.min.js' %}"></script>
+            <script src="{% static 'home/assets/css/bootstrap/js/bootstrap.js' %}"></script>
+            <script src="{% static 'home/assets/js/owl.carousel.js' %}"></script>
+            <script src="{% static 'home/assets/js/main.js' %}"></script>
+                
+    </body>
+    </html>

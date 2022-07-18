@@ -1,0 +1,89 @@
+{% extends "users/base.html" %}
+{% block page-title %} Dashboard {% endblock %} 
+    {% block content %}
+
+    <div>
+        <div class="py-4">
+            <h1>Welcome Praise</h1>
+            <h5>Here are your orders so far:</h5>
+        </div>
+
+        <div class="table-wr table-responsive ">
+            <table class="table border-0 " id="service-table-3">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th class="nowrap">Service ID</th>
+                    <th class="nowrap">Service</th>
+                    <th class="nowrap">Date</th>
+                    <th class="nowrap">Price</th>
+                    <th class="nowrap">Quantity</th>
+                    <th class="nowrap">Description</th>
+                    <th class="nowrap">status</th>
+
+                </tr>
+                </thead>
+                <tbody id="service-tbody">
+                    {% for orders in orders %}
+
+            
+                            <tr data-filter-table-category-id="35">
+                                <td data-label="ID" data-filter-table-service-id="149">{{orders.id}}</td>
+                                <td data-label="ID" data-filter-table-service-id="149">{{orders.service.id}}</td>
+                                <td data-label="Service" class="table-service nowrap" data-filter-table-service-name="true">{{orders.service.title}}</td>
+                                <td data-label="Service" class="table-service nowrap" data-filter-table-service-name="true">{{orders.date}}</td>
+                                <td data-label="Rate per 1000">NGN 568.99</td>
+                                <td data-label="Min order">Quantity</td>
+                                <td data-label="" class="services-list__description">
+                                    {% if orders.service.description == '' %}
+                                        <div></div>
+                                    {% elif orders.service.description %}
+
+                                        <button id="{{orders.service.id}}" data-toggle="modal" data-target="#descrip-{{orders.service.id}}">view</button>
+
+                                    {% endif %}
+                                </td>
+                                <td data-label="Min order">status</td>
+
+                                
+                                
+                            </tr>
+                            <div class="modal fade" id="descrip-{{orders.service.id}}" tabindex="-1" role="dialog" aria-labelledby="modalTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        
+                                        <div class="modal-header">
+                                            <h5 class="modal-title text-center" id="modalLongTitle">
+                                                {{orders.service.title}}
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="pt-3">
+                                                    <p>{{orders.service.description|safe}}</p>
+                                            </div>
+                                        </div>
+                                        <!-- <div class="modal-body">
+                                            <div class=" border-top border-sm pt-3">
+                                                <button>Buy</button>    
+                                            </div>
+                                        </div> -->
+                                        
+                                        
+                                    </div>
+                        
+                                </div>
+                        
+                              </div>
+                            
+                    {% endfor %}
+                        
+                        
+                </tbody>
+            </table>    
+    </div>
+    </div>
+
+    {% endblock content %}

@@ -1,0 +1,99 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+
+
+<!doctype html>
+<html>
+    <head>
+            <title>LazyFamer | {% block page-title %} {% endblock %}</title>
+
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta name="description" content="">
+            <meta name="robots" content="all,follow">
+            
+    
+            <!-- CSS only -->
+            <link rel="stylesheet" href="{% static 'home/assets/css/fontawesome5/css/all.css' %}" type="text/css">
+            <link rel="stylesheet" href="{% static 'home/assets/css/owl.carousel.css' %}" type="text/css">
+            <link rel="stylesheet" href="{% static 'home/assets/css/bootstrap/css/bootstrap.css' %}" type="text/css">
+            <link rel="stylesheet" href="{% static 'home/assets/css/style.css' %}" type="text/css">
+    
+
+
+    </head>
+    <body class="animated-img bg-img bg-overlay dashboard-body">
+        <div class="navbar">
+
+            <nav class="container-fluid">
+                <div>
+                    <a href="{% url 'index' %}">
+                        <img src="{% static 'home/assets/images/logo1.svg' %}" />
+                    </a>
+    
+                </div>
+                
+                
+                <div class="ml-auto">
+                    <div class="link-div d-none d-lg-block">
+                        <ul class="nav_link">
+                            <li class="nav_link_item" >
+                                <a href="{% url 'index' %}" class="">Account</a>
+                            </li>
+                            <li class="nav_link_item">
+                                <a href="{% url 'about-us' %}" class="">Logout</a>
+                            </li>
+                            <li class="nav_link_item">
+                                <a href="{% url 'services' %}" class="">Help</a>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <button class="toggle-btn mobile_menu_btn ml-2 bg-transparent border-1 d-inline d-md-block d-lg-none"><i class="fa fa-bars"></i></button>
+                </div>
+            </nav>
+        </div>
+
+
+        <div class="d-flex dashboard-view">
+            <aside class="aside d-none d-md-none d-lg-block ">
+                <div class="sidebar_nav">
+                    <ul class="">
+                        <li class="sidebar_nav_item"><a href="{% url 'dashboard' %}" class="sidebar_nav_link">Dashboard</a></li>
+                        <li class="sidebar_nav_item"><a href="" class="sidebar_nav_link">New Orders</a></li>
+                        <li class="sidebar_nav_item"><a href="{% url 'dashboard-services' %}" class="sidebar_nav_link">Services</a></li>
+                        <li class="sidebar_nav_item d-block  d-lg-none"><a href="{% url 'dashboard-services' %}" class="sidebar_nav_link">Account</a></li>
+                        <li class="sidebar_nav_item d-block d-lg-none"><a href="{% url 'dashboard-services' %}" class="sidebar_nav_link">Logout</a></li>
+                        <li class="sidebar_nav_item d-block d-lg-none"><a href="{% url 'dashboard-services' %}" class="sidebar_nav_link">Help</a></li>
+                    </ul>
+
+                </div>
+            </aside>
+            <div class="w-100 main-block">
+<div class="row">
+                <div class="col-12">
+                    <!-- <div class="container"> -->
+                    {% block content %}
+                        
+
+                            
+
+                    {% endblock %}
+                    <!-- </div> -->
+                    </div> 
+                </div> 
+            </div>
+            
+        </div>
+        
+        
+
+
+            <script src="{% static 'home/assets/js/jquery.min.js' %}"></script>
+            <script src="{% static 'home/assets/css/bootstrap/js/bootstrap.js' %}"></script>
+            <script src="{% static 'home/assets/js/owl.carousel.js' %}"></script>
+            <script src="{% static 'home/assets/js/main.js' %}"></script>
+                
+    </body>
+    </html>

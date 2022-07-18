@@ -1,0 +1,177 @@
+{% load static %}
+{% load crispy_forms_tags %}
+{% load widget_tweaks %}
+<!doctype html>
+
+
+<html>
+    <head>
+        <title>SignUp</title>
+        
+
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+            <meta name="description" content="">
+            <meta name="robots" content="all,follow">
+            
+    
+            <!-- CSS only -->
+            <link rel="stylesheet" href="{% static 'home/assets/css/fontawesome5/css/all.css' %}" type="text/css">
+            <link rel="stylesheet" href="{% static 'home/assets/css/owl.carousel.css' %}" type="text/css">
+            <link rel="stylesheet" href="{% static 'home/assets/css/bootstrap/css/bootstrap.css' %}" type="text/css">
+            <link rel="stylesheet" href="{% static 'home/assets/css/style.css' %}" type="text/css">
+    
+        <style>
+            .page-content {
+                padding: calc(25px + 24px) calc(24px / 2) 70px calc(24px / 2);
+                }
+
+                body{
+                  /* background: url("{% static 'blog/bg1.jpg' %}"); */
+                  background-repeat: no-repeat;
+                  background-size: cover;
+                  background-position: center;
+                }
+
+                /* body::before{
+                  content:"";
+                  position: absolute;
+                  height: 100%;
+                  width: 100%;
+                  background: #343a40;
+                  opacity: .9;
+                } */
+
+
+                 
+              .bg-img {
+                    background-position: center center;
+                    background-size: cover;
+                }
+
+                .bg-overlay {
+                    position: relative;
+                    z-index: 1;
+                }
+
+                .bg-overlay:after {
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    background-color: rgba(4, 8, 29, 0.7);
+                    content: '';
+                    z-index: -1;
+                    top: 0;
+                    left: 0;
+                }
+                .animated-img {
+                    -webkit-animation: animated-image 20s ease infinite;
+                    animation: animated-image 20s ease infinite;
+                }
+
+                @-webkit-keyframes animated-image {
+                    0% {
+                        background-position: 0% 50%;
+                    }
+                    50% {
+                        background-position: 100% 20%;
+                    }
+                    100% {
+                        background-position: 0% 50%;
+                    }
+                }
+
+                @keyframes animated-image {
+                    0% {
+                        background-position: 0% 50%;
+                    }
+                    50% {
+                        background-position: 100% 20%;
+                    }
+                    100% {
+                        background-position: 0% 50%;
+                    }
+                }
+        </style>
+    </head>
+    <body class="animated-img bg-img bg-overlay">
+
+
+
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex align-items-center min-vh-100">
+                            <div class="w-100 d-block my-5">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-8 col-lg-7">
+                                         <div class="card">
+                                            <div class="card-body">
+                                                <div class="text-center mb-3 mt-3">
+                                                        <h2 class="">Sign Up</h2>
+                                                </div>
+                                                <form method="POST" autocomplete="off" enctype="multipart/form-data" class="py-3 reg-form">
+                                                    {% csrf_token %}
+                                                    
+                                                    <div class="form-row box ">
+                                                        <div class="form-group col-md-12">
+                                                          <label for="username">Username</label>
+                                                          {% render_field userForm.username|attr:'required:true'  class="form-control" placeholder="username" id="username" %}
+                                                        </div>
+                                                        <div class="form-group col-md-12">
+                                                          <label for="email">Email</label>
+                                                          {% render_field userForm.email|attr:'required:true'  class="form-control" placeholder="email" id="email"%}
+                                                        </div>
+                                                        <div class="form-group col-md-12">
+                                                          <label for="first_name">FirstName</label>
+                                                          {% render_field userForm.first_name|attr:'required:true'  class="form-control" placeholder="firstname" id="first_name"%}
+                                                        </div>
+                                                        <div class="form-group col-md-12">
+                                                          <label for="last_name">LastName</label>
+                                                          {% render_field userForm.last_name|attr:'required:true'  class="form-control" placeholder="lastname" id="last_name"%}
+                                                        </div>
+                                                        <div class="form-group col-md-12">
+                                                          <label for="password">Password</label>
+                                                          {% render_field userForm.password|attr:'required:true'  class="form-control" placeholder="password" id="password" %}
+                                                        </div>
+                                                        <div class="form-group col-md-12">
+                                                          <label for="confirm_password">Confirm Password</label>
+                                                          {% render_field userForm.confirm_password|attr:'required:true'  class="form-control" placeholder="confirm password" id="confirm_password" %}
+                                                        </div>
+                                                    </div>
+    
+                                                    <button type="submit" class="btn btn-success btn-block" style="">Sign Up</button>
+                                                  </form>
+                                                  
+                                                
+
+                                                <div class="border-top pt-3">
+                                                    <p class="text-muted mb-0">
+                                                        Already Have An Account?<a class="ml-2" href="{% url 'login' %}">Sign In</a>
+                                                    </p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                </div>
+                                
+                
+                            </div>
+                        </div> 
+                    </div> 
+                </div> 
+            </div>
+        </div>
+
+
+        <script src="{% static 'home/assets/js/jquery.min.js' %}"></script>
+        <script src="{% static 'home/assets/css/bootstrap/js/bootstrap.js' %}"></script>
+        <script src="{% static 'home/assets/js/owl.carousel.js' %}"></script>
+        <script src="{% static 'home/assets/js/main.js' %}"></script>
+    
+    </body>
+</html>
+
+
